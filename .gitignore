@@ -1,0 +1,8 @@
+# PyCharm config
+.idea/
+
+# SQLite
+db.sqlite3
+
+# Enviroment Variables
+.env
