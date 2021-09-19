@@ -18,3 +18,13 @@ Copy .env-example into the .env file
 > cp .env-example .env
 
 Change the environment variables in the .env file accordingly.
+
+### SECRET_KEY
+Generate settings.SECRET_KEY for your project and add it to the .env file.
+
+Open shell
+> python manage.py shell
+
+Get the key by running the following function
+> from django.core.management.utils import get_random_secret_key  
+> get_random_secret_key()
