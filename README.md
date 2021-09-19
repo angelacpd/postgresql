@@ -26,5 +26,16 @@ Open shell
 > python manage.py shell
 
 Get the key by running the following function
-> from django.core.management.utils import get_random_secret_key  
-> get_random_secret_key()
+```python
+from django.core.management.utils import get_random_secret_key  
+
+get_random_secret_key()
+```
+
+## Container
+
+Build docker image
+> docker build .
+
+Start up container (detached)
+> docker-compose up -d
