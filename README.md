@@ -38,4 +38,4 @@ Build docker image
 > docker build .
 
 Start up container (detached)
-> docker-compose up -d
+> docker-compose up -d --build

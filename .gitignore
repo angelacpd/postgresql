@@ -9,3 +9,6 @@ db.sqlite3
 
 # Private notes
 notes.md
+
+#
+*__pycache__/

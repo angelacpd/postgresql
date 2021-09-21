@@ -21,6 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(
     DEBUG=(bool, False),
     SECRET_KEY=(str, ''),
+    POSTGRES_HOST=(str, ''),
+    POSTGRES_NAME=(str, ''),
+    POSTGRES_USER=(str, ''),
+    POSTGRES_PASSWORD=(str, ''),
 )
 
 dotenv_file_path = os.path.join(BASE_DIR, '.env')
@@ -85,10 +89,33 @@ WSGI_APPLICATION = 'postgresql_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': env.str('POSTGRES_HOST'),
+        'PORT': 5432
     }
 }
+
+# DATABASES = {
+# 'default': {
+#     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     'NAME': 'postgres',
+#     'USER': 'postgres',
+#     'PASSWORD': 'postgres',
+#     'HOST': 'db',
+#     # "PORT":""
+# }
+# 'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': env.str('POSTGRES_NAME'),
+#     'USER': env.str('POSTGRES_USER'),
+#     'PASSWORD': env.str('POSTGRES_PASSWORD'),
+#     'HOST': env.str('POSTGRES_HOST'),
+#     'PORT': '5432'
+# }
+# }
 
 
 # Password validation
