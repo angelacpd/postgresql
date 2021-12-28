@@ -18,5 +18,9 @@ Apply migrations
 Create Django superuser
 > docker-compose exec web python manage.py createsuperuser
 
+Log in Django admin with the superuser credentials
+
+http://localhost:8000/admin/
+
 Stop container
 > docker-compose down
