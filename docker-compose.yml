@@ -1,22 +1,21 @@
-version: '3.7'
+version: '3'
 
 services:
   db:
-    image: postgres:12.8
+    image: postgres:12
+    restart: always
+    ports:
+      - 5433:5432
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
   web:
     build: .
-    command: bash -c "python manage.py migrate &&
-                      python manage.py runserver 0.0.0.0:8000"
+    command: python /code/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - 8000:8000
     depends_on:
       - db
-    links:
-      - db:db
+    restart: always
